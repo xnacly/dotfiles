@@ -41,7 +41,6 @@ local lsps = {
     { "gopls" },
     { "ts_ls" },
     { "lua_ls" },
-    { "hls" },
     {
         "clangd",
         {
@@ -50,21 +49,21 @@ local lsps = {
             },
         }
     },
-    {
-        "sqleibniz",
-        {
-            cmd = { '/usr/bin/sqleibniz', '--lsp' },
-            filetypes = { "sql" },
-            root_markers = { "leibniz.lua" }
-        }
-    },
-    {
-        "rust-lsp-example",
-        {
-            cmd = { '/usr/local/bin/rust-lsp-example', '--lsp' },
-            filetypes = { "lisp" },
-        }
-    },
+    -- {
+    --     "sqleibniz",
+    --     {
+    --         cmd = { '/usr/bin/sqleibniz', '--lsp' },
+    --         filetypes = { "sql" },
+    --         root_markers = { "leibniz.lua" }
+    --     }
+    -- },
+    -- {
+    --     "rust-lsp-example",
+    --     {
+    --         cmd = { '/usr/local/bin/rust-lsp-example', '--lsp' },
+    --         filetypes = { "lisp" },
+    --     }
+    -- },
 }
 
 -- see: https://neovim.io/doc/user/news-0.11.html#_lsp

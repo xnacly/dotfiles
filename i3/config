@@ -89,6 +89,8 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+t layout tabbed
 bindsym $mod+s layout toggle split
 bindsym $mod+v bar mode toggle 
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"

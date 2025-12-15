@@ -1,6 +1,6 @@
 theme = latte
 font-family = GoMono Nerd Font
-font-size = 12
+font-size = 13
 confirm-close-surface = false
 cursor-style = bar
 shell-integration = fish
@@ -8,3 +8,4 @@ keybind = ctrl+enter=unbind
 window-decoration = server
 window-theme = ghostty
 # background-opacity = 0.5
+gtk-single-instance = false
