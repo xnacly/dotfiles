@@ -40,14 +40,13 @@ local lsps = {
     { "rust_analyzer" },
     { "gopls" },
     { "ts_ls" },
-    { "cssls" },
     { "lua_ls" },
     { "hls" },
     {
         "clangd",
         {
             init_options = {
-                fallbackFlags = { '--std=c23' }
+                fallbackFlags = { '--std=c23', '-xc' }
             },
         }
     },

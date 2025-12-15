@@ -142,12 +142,6 @@ return require('packer').startup(function(use)
     -- syntax highlighting and parser
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
-    -- sticky scroll
-    use {
-        'nvim-treesitter/nvim-treesitter-context',
-        requires = { 'nvim-treesitter/nvim-treesitter' }
-    }
-
     -- vuejs
     use {
         'yaegassy/coc-volar',
