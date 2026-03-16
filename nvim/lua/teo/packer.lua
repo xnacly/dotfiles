@@ -140,7 +140,7 @@ return require('packer').startup(function(use)
     }
 
     -- syntax highlighting and parser
-    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', branch = 'master' }
 
     -- vuejs
     use {
