@@ -69,6 +69,7 @@ alias gpl="git pull"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.config"
 export WAKATIME_HOME="$HOME/.config"
+export BAT_THEME="Catppuccin Latte"
 
 function fish_greeting
 end

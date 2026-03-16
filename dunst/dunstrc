@@ -55,7 +55,7 @@
     idle_threshold = 120
 
     # Font and typography settings
-    font = Iosevka NerdFont
+    font = "Maple Mono NF 13"
     alignment = left
     word_wrap = yes
 
