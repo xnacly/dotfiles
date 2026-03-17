@@ -10,6 +10,7 @@
 ### set configs ###
 export EDITOR="nvim"
 export VISUAL="nvim"
+set -g fish_key_bindings fish_vi_key_bindings
 
 ### Path extras ###
 export GOPATH="/home/$USER/.config/go"
