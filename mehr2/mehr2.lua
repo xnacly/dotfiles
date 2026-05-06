@@ -51,6 +51,9 @@ MEHR2 = {
                     -- the script to run in $SHELL in a /tmp directory
                     -- If the exit code is non-zero, the install is considered a failure.
                     script = [[
+                    # chose default toolchain, depending on arch-os combination
+                    rustup default stable
+
                     rustup component add rust-docs
                     rustup component add cargo
                     rustup component add clippy
@@ -61,13 +64,19 @@ MEHR2 = {
                     identifier = "nvim",
                     needs = { "git", "make", "cmake", "gcc" },
                     script = [[
-                    git clone https://github.com/neovim/neovim
-                    cd neovim
-                    git switch nightly
-                    make CMAKE_BUILD_TYPE=Release
-                    make install
+                        git clone https://github.com/neovim/neovim
+                        cd neovim
+                        git switch nightly
+                        make CMAKE_BUILD_TYPE=Release
+                        make install
                     ]]
                 },
+                {
+                    identifier = "xinitrc",
+                    script = [[
+                        echo /usr/bin/i3 > ~/.xinitrc
+                    ]]
+                }
             },
         }
     },
