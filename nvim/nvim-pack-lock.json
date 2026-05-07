@@ -45,7 +45,7 @@
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
-      "rev": "cf12346a3414fa1b06af75c79faebe7f76df080a",
+      "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
@@ -72,10 +72,6 @@
     "vim-commentary": {
       "rev": "64a654ef4a20db1727938338310209b6a63f60c9",
       "src": "https://github.com/tpope/vim-commentary"
-    },
-    "vimtex": {
-      "rev": "97e11bd4f56d46a87f8593d6ccb27820e19c4ab0",
-      "src": "https://github.com/lervag/vimtex"
     }
   }
 }

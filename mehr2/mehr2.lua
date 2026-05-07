@@ -64,6 +64,7 @@ MEHR2 = {
                         rustup component add cargo
                         rustup component add clippy
                         rustup component add rustfmt
+                        rustup component add rust-analyzer
                     ]]
                 },
                 {
