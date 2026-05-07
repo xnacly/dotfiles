@@ -78,7 +78,7 @@ o.hlsearch = false
 
 -- disable backups
 o.backup = false
-o.background = "dark"
+o.background = "light"
 
 -- display the current line different from the rest of the file
 -- o.cursorline = true

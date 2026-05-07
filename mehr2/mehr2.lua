@@ -19,10 +19,13 @@ MEHR2 = {
                 -- mehr2 queries package names (eg. via pacman -Q), not group aliases.
                 -- Groups like "i3" may appear missing in `mehr info` even when their
                 -- member packages are installed, so list individual packages explicitly.
+
+                -- i3
                 "i3-wm",
                 "i3lock",
                 "i3blocks",
                 "i3status",
+                
 
                 "acpi",
                 "zathura",
@@ -35,6 +38,9 @@ MEHR2 = {
                 "rustup",
                 "yazi",
                 "github-cli",
+
+                "tree-sitter",
+                "tree-sitter-cli",
             },
         },
         -- list all packages to be installed with the cargo provider
@@ -51,13 +57,13 @@ MEHR2 = {
                     -- the script to run in $SHELL in a /tmp directory
                     -- If the exit code is non-zero, the install is considered a failure.
                     script = [[
-                    # chose default toolchain, depending on arch-os combination
-                    rustup default stable
+                        # chose default toolchain, depending on arch-os combination
+                        rustup default stable
 
-                    rustup component add rust-docs
-                    rustup component add cargo
-                    rustup component add clippy
-                    rustup component add rustfmt
+                        rustup component add rust-docs
+                        rustup component add cargo
+                        rustup component add clippy
+                        rustup component add rustfmt
                     ]]
                 },
                 {

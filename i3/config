@@ -33,7 +33,7 @@ set $mantle #e6e9ef
 set $crust #dce0e8
 set $browser firefox
 set $term ghostty
-set $font GoMono Nerd Font
+set $font Maple Mono NF
 set $font_size 12
 set $gaps 0
 

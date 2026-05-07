@@ -14,7 +14,7 @@ set -g fish_key_bindings fish_vi_key_bindings
 
 ### Path extras ###
 export GOPATH="/home/$USER/.config/go"
-export PATH="$PATH:$GOPATH/bin:$HOME/.cargo/bin"
+export PATH="$PATH:$GOPATH/bin:$HOME/.cargo/bin:$HOME/.local/bin"
 
 ### aliases ###
 
