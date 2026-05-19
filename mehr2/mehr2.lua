@@ -6,7 +6,6 @@ MEHR2 = {
             name = "pacman",
             packages = {
                 "git",
-                "picom",
                 "fish",
                 "imagemagick",
                 "firefox",

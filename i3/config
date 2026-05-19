@@ -34,9 +34,8 @@ set $crust #dce0e8
 set $browser firefox
 set $term ghostty
 set $font Maple Mono NF
-set $font_size 12
+set $font_size 14
 set $gaps 0
-
 default_border pixel 3
 title_align center
 hide_edge_borders smart
@@ -166,9 +165,7 @@ bar {
 exec --no-startup-id dunst
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id xscreensaver
-exec_always --no-startup-id "picom -b"
 exec_always --no-startup-id "playerctld daemon"
-exec --no-startup-id "xrandr -s 1920x1080 -r 144.00"
 exec --no-startup-id "spotify"
 exec --no-startup-id "discord"
 exec --no-startup-id "flameshot"
