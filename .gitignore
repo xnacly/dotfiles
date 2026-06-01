@@ -1,4 +1,7 @@
 nvim/plugged/*
 *
+!environment.d/
+!environment.d/**
+!sway/
+!sway/**
 fish/fish_variables
-

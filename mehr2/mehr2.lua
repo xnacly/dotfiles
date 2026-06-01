@@ -7,12 +7,25 @@ MEHR2 = {
             packages = {
                 "git",
                 "fish",
+                "eza",
                 "imagemagick",
                 "firefox",
                 "flameshot",
                 "pipewire",
                 "dunst",
                 "rofi",
+                "playerctl",
+                "brightnessctl",
+                "network-manager-applet",
+                "thunar",
+                "xorg-xwayland",
+                "sway",
+                "swaybg",
+                "swayidle",
+                "swaylock",
+                "xdg-desktop-portal",
+                "xdg-desktop-portal-wlr",
+                "fuzzel",
 
                 -- Avoid package groups here.
                 -- mehr2 queries package names (eg. via pacman -Q), not group aliases.
@@ -24,7 +37,6 @@ MEHR2 = {
                 "i3lock",
                 "i3blocks",
                 "i3status",
-                
 
                 "acpi",
                 "zathura",
@@ -43,7 +55,7 @@ MEHR2 = {
             },
         },
         -- list all packages to be installed with the cargo provider
-        { name = "cargo", packages = { "exa", "bat", "ripgrep" } },
+        { name = "cargo", packages = { "bat", "ripgrep" } },
         -- scratch runs these IF the scratch.identifier is not in the lock file
         {
             name = "scratch",
@@ -67,20 +79,10 @@ MEHR2 = {
                     ]]
                 },
                 {
-                    identifier = "nvim",
-                    needs = { "git", "make", "cmake", "gcc" },
+                    identifier = "sway-session",
+                    needs = { "sway" },
                     script = [[
-                        git clone https://github.com/neovim/neovim
-                        cd neovim
-                        git switch nightly
-                        make CMAKE_BUILD_TYPE=Release
-                        make install
-                    ]]
-                },
-                {
-                    identifier = "xinitrc",
-                    script = [[
-                        echo /usr/bin/i3 > ~/.xinitrc
+                        chmod +x ~/.config/sway/start
                     ]]
                 }
             },
