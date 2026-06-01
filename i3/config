@@ -42,7 +42,8 @@ hide_edge_borders smart
 focus_follows_mouse no
 set $mod Mod4 
 set $alt Mod1
-bindsym $mod+space exec "dunstctl close"
+bindsym $alt+space exec "dunstctl close"
+bindsym $mod+space focus mode_toggle
 bindsym $mod+c exec $term --working-directory=".config/i3/"
 bindsym $mod+b exec $browser 
 bindsym $mod+shift+s exec "flameshot gui"

@@ -1,6 +1,6 @@
 theme = latte
 font-family = Maple Mono NF
-font-size = 14
+font-size = 18
 confirm-close-surface = false
 cursor-style = bar
 shell-integration = fish

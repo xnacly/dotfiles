@@ -36,10 +36,20 @@ vim.lsp.buf.code_action = (function(orig)
     end
 end)(vim.lsp.buf.code_action)
 
+vim.filetype.add({
+    extension = {
+        scm   = "scheme",
+        sls   = "scheme",
+        js    = "javascript",
+        ts    = "typescript",
+        vue   = "vue",
+        tengo = "tengo",
+    },
+})
+
 local lsps = {
     { "rust_analyzer" },
     { "gopls" },
-    { "ts_ls" },
     { "lua_ls" },
     {
         "clangd",
@@ -48,6 +58,24 @@ local lsps = {
                 fallbackFlags = { '--std=c23', '-xc' }
             },
         }
+    },
+    {
+        "scheme-rs",
+        {
+            cmd = {
+                "/home/teo/programming/scheme-rs/target/debug/scheme-rs",
+                "--lsp",
+                "--dangerously-allow-macro-expansion-in-lsp",
+            },
+            filetypes = { "scheme" }
+        }
+    },
+    {
+        "tengo",
+        {
+            cmd = { "tengo-lsp" },
+            filetypes = { "tengo" }
+        },
     },
     -- {
     --     "sqleibniz",
