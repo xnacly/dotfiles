@@ -1,7 +1,7 @@
 # vim: filetype=config
 
 [network]
-command=nmcli connection show | sed -n '2p' | awk '{ print $1 }'
+command=nmcli -t -f NAME,TYPE connection show --active 2>/dev/null | awk -F: '$2 != "loopback" { print $1; found=1; exit } END { if (!found) print "offline" }'
 label=
 interval=30
 
@@ -11,22 +11,24 @@ label=
 interval=60
 
 [memory]
-command=free -m | tail -n2 | head -n1 | awk '{ print $3 "mb"}'
+command=free -m | awk '/^Mem:/ { print $3 "mb" }'
 label=
 interval=10
 
 [weather]
-command=sh ~/.config/i3blocks/scripts/get_weather.sh
+command=~/.config/i3blocks/scripts/get_weather.sh
 label=
 interval=1200
+signal=1
 
 [volume]
-command=sh ~/.config/i3blocks/scripts/volume_handler.sh 
+command=~/.config/i3blocks/scripts/volume_handler.sh
 label=
-interval=1
+interval=once
+signal=10
 
 [battery]
-command=acpi | awk ' { print $4}' | sed 's/,//g'
+command=acpi -b | awk -F'[,:%]' '{ gsub(/^ +/, "", $2); gsub(/^ +/, "", $3); print $2 " " $3 "%" }'
 label=
 interval=60
 
@@ -34,4 +36,3 @@ interval=60
 command=date +%H:%M" "%d." "%b | awk '{ print $0 }'
 label=
 interval=60
-

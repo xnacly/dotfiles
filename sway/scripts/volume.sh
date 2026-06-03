@@ -1,8 +1,25 @@
 #!/usr/bin/env sh
 
-pamixer -t
+case "${1:-toggle}" in
+  up)
+    pamixer -i 5
+    ;;
+  down)
+    pamixer -d 5
+    ;;
+  toggle)
+    pamixer -t
+    ;;
+  *)
+    printf 'usage: %s [up|down|toggle]\n' "$0" >&2
+    exit 2
+    ;;
+esac
+
 if [ "$(pamixer --get-mute)" = "true" ]; then
-  dunstify -u low "Muted Volume"
+  notify-send -u low "Volume" "Muted"
 else
-  dunstify -u low "Unmuted Volume"
+  notify-send -u low "Volume" "$(pamixer --get-volume)%"
 fi
+
+pkill -RTMIN+10 i3blocks 2>/dev/null || true

@@ -1,0 +1,27 @@
+font=Maple Mono NF 13
+format=<b>%s</b>\n%b
+sort=-time
+layer=overlay
+anchor=top-right
+width=300
+height=140
+outer-margin=34,15,0,0
+margin=8
+padding=10
+border-size=1
+border-radius=0
+icons=1
+max-icon-size=64
+markup=1
+default-timeout=5000
+ignore-timeout=0
+max-visible=5
+
+background-color=#eff1f5
+text-color=#4c4f69
+border-color=#eff1f5
+progress-color=over #1e66f5
+
+[urgency=critical]
+default-timeout=0
+border-color=#fe640b
