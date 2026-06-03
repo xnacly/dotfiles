@@ -25,6 +25,8 @@
 !zathura/**
 !zellij/
 !zellij/**
+!fuzzel/
+!fuzzel/**
 fish/fish_variables
 fish/fish_history
 mehr2/mehr2_lock.json
