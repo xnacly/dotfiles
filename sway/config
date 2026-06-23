@@ -49,20 +49,19 @@ output * bg ~/.config/wallpapers/tokyonightWallpaper.png fill
 
 input * {
     xkb_layout de
+    repeat_delay 250
+    repeat_rate 50
 }
 
 input type:touchpad {
     tap enabled
 }
 
-output eDP-1 disable
-
 bindsym $alt+space exec "makoctl dismiss"
 bindsym $mod+space focus mode_toggle
 bindsym $mod+c exec $term --working-directory="$HOME/.config/sway/"
 bindsym $mod+b exec $browser
-bindsym $mod+shift+s exec "flameshot gui"
-bindsym Print exec "flameshot full -c"
+bindsym $mod+shift+s exec grim -g "$(slurp)" - | wl-copy --type image/png
 bindsym $mod+e exec "thunar"
 bindsym $mod+n exec "nm-connection-editor"
 bindsym $mod+d exec "fuzzel"
@@ -185,6 +184,8 @@ bar {
 
 exec --no-startup-id dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway XDG_SESSION_DESKTOP=sway XDG_SESSION_TYPE=wayland
 exec --no-startup-id systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP XDG_SESSION_TYPE
+exec --no-startup-id /usr/lib/xdg-desktop-portal -r
+exec_always --no-startup-id ~/.config/sway/scripts/kanshi.sh
 exec --no-startup-id nm-applet --indicator
 exec --no-startup-id swayidle -w timeout 300 '~/.config/sway/scripts/lock.sh' timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' before-sleep '~/.config/sway/scripts/lock.sh'
 exec_always --no-startup-id "playerctld daemon"
