@@ -16,10 +16,6 @@ vim.api.nvim_create_autocmd('PackChanged', {
 
 vim.pack.add({
     'https://github.com/neovim/nvim-lspconfig',
-    'https://github.com/hrsh7th/cmp-nvim-lsp',
-    'https://github.com/hrsh7th/cmp-buffer',
-    'https://github.com/hrsh7th/cmp-path',
-    'https://github.com/hrsh7th/nvim-cmp',
 
     'https://github.com/folke/todo-comments.nvim',
 
@@ -55,26 +51,6 @@ vim.pack.add({
 
     -- syntax highlighting and parser
     { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'main' },
-})
-
-local cmp = require('cmp')
-cmp.setup({
-    mapping = {
-        ["<C-n>"] = cmp.mapping.select_next_item { behaviour = cmp.SelectBehavior.Insert },
-        ["<C-p>"] = cmp.mapping.select_prev_item { behaviour = cmp.SelectBehavior.Insert },
-        ["<Tab>"] = cmp.mapping(
-            cmp.mapping.confirm {
-                behaviour = cmp.SelectBehavior.Insert,
-                select = true,
-            },
-            { "i", "c" }
-        ),
-    },
-    sources = cmp.config.sources({
-        { name = 'nvim_lsp' },
-        { name = 'path' },
-        { name = 'buffer' },
-    }),
 })
 
 require("todo-comments").setup()
