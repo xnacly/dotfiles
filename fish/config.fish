@@ -11,6 +11,7 @@
 export EDITOR="nvim"
 export VISUAL="nvim"
 set -g fish_key_bindings fish_vi_key_bindings
+export OLLAMA_API_KEY="owui_Gi1dZuEEdDhK1yrtPFswjcHXhGhUUVQUIpZBn6py1MY"
 
 ### Path extras ###
 export GOPATH="/home/$USER/.config/go"

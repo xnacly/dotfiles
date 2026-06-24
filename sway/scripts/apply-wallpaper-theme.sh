@@ -20,6 +20,13 @@ case "$wallpaper" in
     "~"/*) wallpaper="$HOME/${wallpaper#~/}" ;;
 esac
 
+normalize_color() {
+    hex=${1#\#}
+    hex=${hex%\"}
+    hex=${hex#\"}
+    printf '#%.6s\n' "$hex"
+}
+
 if [ "$mode" = "auto" ] && command -v magick >/dev/null 2>&1; then
     brightness=$(magick "$wallpaper" -resize 64x64\! -colorspace Gray -format '%[fx:mean*100]' info:)
     if awk "BEGIN { exit !($brightness >= 42) }"; then
@@ -70,6 +77,26 @@ if [ "$mode" = "light" ] && command -v magick >/dev/null 2>&1; then
     color0=$(magick xc:"$paper_bg" -colorspace HSL -channel B -evaluate set 86% +channel -colorspace sRGB -depth 8 -format '#%[hex:p{0,0}]' info:)
     color8=$(magick xc:"$paper_bg" -colorspace HSL -channel B -evaluate set 58% +channel -colorspace sRGB -depth 8 -format '#%[hex:p{0,0}]' info:)
 fi
+
+background=$(normalize_color "$background")
+foreground=$(normalize_color "$foreground")
+cursor=$(normalize_color "$cursor")
+color0=$(normalize_color "$color0")
+color1=$(normalize_color "$color1")
+color2=$(normalize_color "$color2")
+color3=$(normalize_color "$color3")
+color4=$(normalize_color "$color4")
+color5=$(normalize_color "$color5")
+color6=$(normalize_color "$color6")
+color7=$(normalize_color "$color7")
+color8=$(normalize_color "$color8")
+color9=$(normalize_color "$color9")
+color10=$(normalize_color "$color10")
+color11=$(normalize_color "$color11")
+color12=$(normalize_color "$color12")
+color13=$(normalize_color "$color13")
+color14=$(normalize_color "$color14")
+color15=$(normalize_color "$color15")
 
 sway_config="$HOME/.config/sway/wal.conf"
 lock_script="$HOME/.config/sway/scripts/lock.sh"
@@ -203,7 +230,7 @@ cat > "$rofi_colors" <<EOF
  * mode=$mode
  */
 * {
-    bg: ${background}f2;
+    bg: ${background};
     bg-solid: ${background};
     surface: ${color0};
     surface2: ${color8};
