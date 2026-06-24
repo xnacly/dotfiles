@@ -19,15 +19,17 @@ set $lavender #7287fd
 set $text #4c4f69
 set $subtext1 #5c5f77
 set $subtext0 #6c6f85
-set $overlay2 #7c7f93
-set $overlay1 #8c8fa1
-set $overlay0 #9ca0b0
-set $surface2 #acb0be
-set $surface1 #bcc0cc
-set $surface0 #ccd0da
-set $base #eff1f5
-set $mantle #e6e9ef
-set $crust #dce0e8
+set $overlay2 #796f64
+set $overlay1 #877d70
+set $overlay0 #958b7b
+set $surface2 #b2a792
+set $surface1 #bdb3a0
+set $surface0 #c8bfad
+set $base #e8e3d6
+set $mantle #ddd7c8
+set $crust #d2caba
+
+include ~/.config/sway/wal.conf
 
 set $browser firefox
 set $term ghostty
@@ -44,8 +46,6 @@ focus_follows_mouse no
 floating_modifier $mod
 gaps inner $gaps
 font pango:$font $font_size
-
-output * bg ~/.config/wallpapers/tokyonightWallpaper.png fill
 
 input * {
     xkb_layout de
@@ -64,7 +64,8 @@ bindsym $mod+b exec $browser
 bindsym $mod+shift+s exec grim -g "$(slurp)" - | wl-copy --type image/png
 bindsym $mod+e exec "thunar"
 bindsym $mod+n exec "nm-connection-editor"
-bindsym $mod+d exec "fuzzel"
+bindsym $mod+d exec "rofi -show drun"
+bindsym $mod+w exec ~/.config/sway/scripts/pick-wallpaper.sh
 bindsym $mod+Return exec $term
 bindsym $mod+Shift+q kill
 bindsym $mod+h focus left
@@ -154,9 +155,10 @@ for_window [window_role="task_dialog"] floating enable
 for_window [window_role="Preferences"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
+for_window [all] opacity 0.96
 
 # target                 title     bg    text   indicator  border
-client.focused           $mauve    $base $text  $mauve     $mauve
+client.focused           $surface2 $base $text  $surface2  $surface2
 client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
 client.unfocused         $overlay0 $base $text  $rosewater $mantle
 client.urgent            $peach    $base $peach $overlay0  $peach
@@ -175,7 +177,7 @@ bar {
         focused_separator  $base
 
         # target           border bg        text
-        focused_workspace  $base  $mauve    $crust
+        focused_workspace  $base  $surface2 $text
         active_workspace   $base  $surface2 $text
         inactive_workspace $base  $base     $text
         urgent_workspace   $base  $red      $crust

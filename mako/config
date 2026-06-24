@@ -17,11 +17,11 @@ default-timeout=5000
 ignore-timeout=0
 max-visible=5
 
-background-color=#eff1f5
-text-color=#4c4f69
-border-color=#eff1f5
-progress-color=over #1e66f5
+background-color=#E9EBEC
+text-color=#3d3d3c
+border-color=#8E989A
+progress-color=over #7C9DC0
 
 [urgency=critical]
 default-timeout=0
-border-color=#fe640b
+border-color=#6B7A85

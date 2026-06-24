@@ -82,7 +82,64 @@ require("nvim-tree").setup({
 
 require('nvim-web-devicons').setup()
 
+local function wal_latte_colors()
+    local fallback = {
+        base = "#e8e3d6",
+        mantle = "#ddd7c8",
+        crust = "#d2caba",
+        surface0 = "#c8bfad",
+        surface1 = "#bdb3a0",
+        surface2 = "#b2a792",
+        overlay0 = "#958b7b",
+        overlay1 = "#877d70",
+        overlay2 = "#796f64",
+    }
+
+    local path = vim.fn.expand("~/.config/nvim/wal-colors.json")
+    local ok_read, lines = pcall(vim.fn.readfile, path)
+    if not ok_read or #lines == 0 then
+        return fallback
+    end
+
+    local ok, wal = pcall(vim.json.decode, table.concat(lines, "\n"))
+    if not ok or not wal.special or not wal.colors then
+        return fallback
+    end
+
+    return {
+        base = wal.special.background or fallback.base,
+        mantle = wal.colors.color0 or fallback.mantle,
+        crust = wal.colors.color0 or fallback.crust,
+        surface0 = wal.colors.color0 or fallback.surface0,
+        surface1 = wal.colors.color7 or fallback.surface1,
+        surface2 = wal.colors.color8 or fallback.surface2,
+        overlay0 = wal.colors.color8 or fallback.overlay0,
+        overlay1 = wal.colors.color8 or fallback.overlay1,
+        overlay2 = wal.colors.color8 or fallback.overlay2,
+        text = wal.special.foreground,
+        subtext1 = wal.colors.color15,
+        subtext0 = wal.colors.color7,
+        red = wal.colors.color1,
+        maroon = wal.colors.color9,
+        peach = wal.colors.color3,
+        yellow = wal.colors.color11,
+        green = wal.colors.color2,
+        teal = wal.colors.color6,
+        sky = wal.colors.color14,
+        sapphire = wal.colors.color6,
+        blue = wal.colors.color4,
+        lavender = wal.colors.color12,
+        mauve = wal.colors.color5,
+        pink = wal.colors.color13,
+        flamingo = wal.colors.color13,
+        rosewater = wal.colors.color15,
+    }
+end
+
 require("catppuccin").setup({
     transparent_background = false,
+    color_overrides = {
+        latte = wal_latte_colors(),
+    },
 })
 vim.cmd.colorscheme "catppuccin-latte"
