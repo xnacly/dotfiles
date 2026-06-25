@@ -36,16 +36,29 @@ vim.lsp.buf.code_action = (function(orig)
     end
 end)(vim.lsp.buf.code_action)
 
-vim.filetype.add({
-    extension = {
-        scm   = "scheme",
-        sls   = "scheme",
-        js    = "javascript",
-        ts    = "typescript",
-        vue   = "vue",
-        tengo = "tengo",
-    },
+vim.opt.completeopt = { "menuone", "noselect", "popup" }
+
+vim.api.nvim_create_autocmd('LspAttach', {
+    callback = function(ev)
+        local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
+        if client:supports_method('textDocument/completion') then
+            vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+        end
+    end,
 })
+
+vim.keymap.set('i', '<C-Space>', function()
+    vim.lsp.completion.get()
+end)
+
+vim.keymap.set('i', '<Tab>', function()
+    if vim.fn.pumvisible() == 0 then
+        return '<Tab>'
+    end
+
+    return vim.fn.complete_info({ 'selected' }).selected == -1 and '<C-n><C-y>' or '<C-y>'
+end, { expr = true })
+
 
 local lsps = {
     { "rust_analyzer" },
@@ -60,38 +73,27 @@ local lsps = {
         }
     },
     {
-        "scheme-rs",
-        {
-            cmd = {
-                "/home/teo/programming/scheme-rs/target/debug/scheme-rs",
-                "--lsp",
-                "--dangerously-allow-macro-expansion-in-lsp",
-            },
-            filetypes = { "scheme" }
-        }
-    },
-    {
         "tengo",
         {
             cmd = { "tengo-lsp" },
             filetypes = { "tengo" }
         },
     },
-    -- {
-    --     "sqleibniz",
-    --     {
-    --         cmd = { '/usr/bin/sqleibniz', '--lsp' },
-    --         filetypes = { "sql" },
-    --         root_markers = { "leibniz.lua" }
-    --     }
-    -- },
-    -- {
-    --     "rust-lsp-example",
-    --     {
-    --         cmd = { '/usr/local/bin/rust-lsp-example', '--lsp' },
-    --         filetypes = { "lisp" },
-    --     }
-    -- },
+    {
+        "purple-garden",
+        {
+            cmd = { '/home/teo/programming/purple-garden/target/debug/purple-garden', 'lsp' },
+            filetypes = { "garden" },
+        }
+    },
+    {
+        "sqleibniz",
+        {
+            cmd = { '/usr/bin/sqleibniz', '--lsp' },
+            filetypes = { "sql" },
+            root_markers = { "leibniz.lua" }
+        }
+    },
 }
 
 -- see: https://neovim.io/doc/user/news-0.11.html#_lsp

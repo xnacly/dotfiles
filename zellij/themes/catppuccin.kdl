@@ -1,6 +1,6 @@
 themes {
   catppuccin-latte {
-    bg "#acb0be" // Surface2
+    bg "#b2a792" // Paper Surface2
     fg "#4c4f69" // Text
     red "#d20f39"
     green "#40a02b"
@@ -9,7 +9,7 @@ themes {
     magenta "#ea76cb" // Pink
     orange "#fe640b" // Peach
     cyan "#04a5e5" // Sky
-    black "#e6e9ef" // Mantle
+    black "#ddd7c8" // Paper Mantle
     white "#4c4f69" // Text
   }
 }

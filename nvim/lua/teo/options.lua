@@ -86,3 +86,15 @@ o.background = "light"
 o.swapfile = false
 
 o.colorcolumn = "140"
+
+vim.filetype.add({
+    extension = {
+        scm    = "scheme",
+        sls    = "scheme",
+        js     = "javascript",
+        ts     = "typescript",
+        vue    = "vue",
+        tengo  = "tengo",
+        garden = "garden",
+    },
+})

@@ -11,10 +11,11 @@
 export EDITOR="nvim"
 export VISUAL="nvim"
 set -g fish_key_bindings fish_vi_key_bindings
+export OLLAMA_API_KEY="owui_Gi1dZuEEdDhK1yrtPFswjcHXhGhUUVQUIpZBn6py1MY"
 
 ### Path extras ###
 export GOPATH="/home/$USER/.config/go"
-export PATH="$PATH:$GOPATH/bin:$HOME/.cargo/bin:$HOME/.local/bin"
+fish_add_path --global --move "$GOPATH/bin" "$HOME/.cargo/bin" "$HOME/.local/bin"
 
 ### aliases ###
 
@@ -55,10 +56,10 @@ alias cd..="cd .."
 alias vim="nvim"
 
 # ls
-alias ls="exa"
-alias l="exa"
-alias la="exa"
-alias tree="exa --tree --level=4 --icons --git"
+alias ls="eza"
+alias l="eza"
+alias la="eza"
+alias tree="eza --tree --level=4 --icons --git"
 
 # github
 alias gs="git status"
@@ -71,6 +72,15 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.config"
 export WAKATIME_HOME="$HOME/.config"
 export BAT_THEME="Catppuccin Latte"
+
+# Prefer Wayland-native backends while keeping X11 fallback for mixed sessions.
+export MOZ_ENABLE_WAYLAND="1"
+export ELECTRON_OZONE_PLATFORM_HINT="auto"
+export NIXOS_OZONE_WL="1"
+export GDK_BACKEND="wayland,x11"
+export QT_QPA_PLATFORM="wayland;xcb"
+export SDL_VIDEODRIVER="wayland"
+export CLUTTER_BACKEND="wayland"
 
 function fish_greeting
 end

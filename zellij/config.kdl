@@ -1,5 +1,5 @@
 default_layout "xnacly"
-theme "catppuccin-latte"
+theme "wal"
 
 keybinds clear-defaults=true {
     normal {

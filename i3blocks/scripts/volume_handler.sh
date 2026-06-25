@@ -1,8 +1,18 @@
-is_muted=`pamixer --get-mute`
-volume=`pamixer --get-volume | awk '{print $1"%"}'`
+#!/usr/bin/env sh
 
-if [[ "$is_muted" == "true" ]]; then
+if [ "$BLOCK_BUTTON" = "1" ]; then
+    ~/.config/sway/scripts/volume.sh toggle >/dev/null 2>&1
+fi
+
+if ! mute=$(pamixer --get-mute 2>/dev/null); then
+    echo "vol n/a"
+elif [ "$mute" = "true" ]; then
     echo "--%"
-else 
-    echo $volume
+else
+    volume=$(pamixer --get-volume 2>/dev/null) || volume=
+    if [ -n "$volume" ]; then
+        printf '%s%%\n' "$volume"
+    else
+        echo "vol n/a"
+    fi
 fi
