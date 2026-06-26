@@ -19,6 +19,7 @@ MEHR2 = {
                 "network-manager-applet",
                 "thunar",
                 "xorg-xwayland",
+
                 "sway",
                 "swaybg",
                 "swayidle",
@@ -26,6 +27,7 @@ MEHR2 = {
                 "xdg-desktop-portal",
                 "xdg-desktop-portal-wlr",
                 "fuzzel",
+                "wl-clipboard",
 
                 -- Avoid package groups here.
                 -- mehr2 queries package names (eg. via pacman -Q), not group aliases.
