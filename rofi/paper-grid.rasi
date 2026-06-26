@@ -1,0 +1,79 @@
+@import "wal-colors.rasi"
+
+* {
+    background-color: transparent;
+    text-color: @text;
+    margin: 0;
+    padding: 0;
+    spacing: 0;
+}
+
+window {
+    width: 760px;
+    background-color: @bg;
+    border: 2px;
+    border-color: @border;
+    border-radius: 0;
+}
+
+mainbox {
+    padding: 14px;
+    spacing: 12px;
+    children: [ inputbar, listview ];
+}
+
+inputbar {
+    padding: 8px 10px;
+    spacing: 8px;
+    background-color: @surface;
+    children: [ prompt, entry ];
+}
+
+prompt {
+    text-color: @muted;
+}
+
+entry {
+    placeholder: "run command";
+    placeholder-color: @muted;
+    text-color: @text;
+}
+
+listview {
+    columns: 5;
+    lines: 3;
+    fixed-columns: true;
+    fixed-height: true;
+    flow: horizontal;
+    spacing: 10px;
+    cycle: true;
+}
+
+element {
+    orientation: vertical;
+    children: [ element-icon, element-text ];
+    spacing: 7px;
+    padding: 10px 8px;
+    background-color: transparent;
+}
+
+element selected {
+    background-color: @surface2;
+    text-color: @text;
+}
+
+element urgent {
+    text-color: @urgent;
+}
+
+element-icon {
+    size: 42px;
+    horizontal-align: 0.5;
+}
+
+element-text {
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    expand: true;
+    text-color: inherit;
+}

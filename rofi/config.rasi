@@ -1,0 +1,17 @@
+configuration {
+    modes: "drun,run,window";
+    font: "Maple Mono NF 13";
+    terminal: "ghostty";
+    show-icons: true;
+    icon-theme: "pixora";
+    drun-match-fields: "name,generic,exec,categories,keywords";
+    drun-display-format: "{name}";
+    drun-show-actions: true;
+    matching: "fuzzy";
+    sort: true;
+    sorting-method: "fzf";
+    cycle: true;
+    click-to-exit: true;
+}
+
+@theme "paper-grid"
